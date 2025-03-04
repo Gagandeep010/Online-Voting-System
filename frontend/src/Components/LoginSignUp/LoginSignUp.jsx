@@ -12,7 +12,8 @@ const LoginSignUp = () => {
     const [formData, setFormData] = useState({
     phoneNumber: "",
     adharID: "",
-    dob: "",
+    age: "",
+    user_name: "",
   });
 
   // Handle input changes
@@ -52,6 +53,20 @@ const LoginSignUp = () => {
             <div className="inputs">
                 {action==="Login"?<div></div>:
                 <div className="input">
+                    <img src={user} alt="" />
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    value={formData.user_name}
+                    onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
+                    required
+                />
+            </div>}
+            </div>
+            <div className="inputs">
+                {action==="Login"?<div></div>:
+                <div className="input">
                     <img src={phone} alt="" />
                 <input
                     type="tel"
@@ -68,10 +83,13 @@ const LoginSignUp = () => {
                 <div className="input">
                     <img src={user} alt="" />
                     <input
-                        type="date"
-                        name="dob"
-                        value={formData.dob}
-                        onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+                        type="number"
+                        name="age"
+                        placeholder="Age"
+                        min="18"
+                        max="99"
+                        value={formData.age}
+                        onChange={(e) => setFormData({ ...formData, age: e.target.value })}
                         required
                     />
                 </div>
