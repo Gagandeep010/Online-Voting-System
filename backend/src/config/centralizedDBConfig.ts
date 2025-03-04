@@ -1,19 +1,16 @@
 import {MongoClient} from 'mongodb';
 import {config} from 'dotenv';
-import path from 'path';
-import { log } from 'console';
 
-config({path: path.resolve(__dirname, '../.env')});
+config();
 
+const CENTRALIZED_DB_URI = process.env.CENTRALIZED_DB_URI;
+console.log('CENTRALIZED_DB_URI:', CENTRALIZED_DB_URI);
 
-const DB_CONNECTION = process.env.CENTRALIZED_DB_URI;
-console.log('DB_CONNECTION:', DB_CONNECTION);
-
-if (!DB_CONNECTION) {
-    throw new Error('DB_CONNECTION is not defined');
+if (!CENTRALIZED_DB_URI) {
+    throw new Error('CENTRALIZED_DB_URI is not defined');
 }
 const connectDB = async () => {
-    const client = new MongoClient(DB_CONNECTION);
+    const client = new MongoClient(CENTRALIZED_DB_URI);
     try {
         await client.connect();
         console.log('Connected to the database');
