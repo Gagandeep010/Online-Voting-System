@@ -1,22 +1,20 @@
-import {MongoClient} from 'mongodb';
-import {config} from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-config();
+dotenv.config();
 
-const CENTRALIZED_DB_URI = process.env.CENTRALIZED_DB_URI;
-console.log('CENTRALIZED_DB_URI:', CENTRALIZED_DB_URI);
+const CENTRALIZED_DB_URI =
+  process.env.CENTRALIZED_DB_URI ||
+  "mongodb://localhost:27017/Online_Voting_System";
 
-if (!CENTRALIZED_DB_URI) {
-    throw new Error('CENTRALIZED_DB_URI is not defined');
-}
 const connectDB = async () => {
-    const client = new MongoClient(CENTRALIZED_DB_URI);
-    try {
-        await client.connect();
-        console.log('Connected to the database');
-    } catch (error) {
-        console.log('Database connection error:', error);
-    }
-}
+  try {
+    await mongoose.connect(CENTRALIZED_DB_URI);
+    console.log(" Connected to MongoDB");
+  } catch (error) {
+    console.error(" MongoDB connection error:", error);
+    process.exit(1); // Exit on failure
+  }
+};
 
 export default connectDB;

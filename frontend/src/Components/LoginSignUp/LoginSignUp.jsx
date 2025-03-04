@@ -9,6 +9,40 @@ import otp from "../Assets/otp.png"
 const LoginSignUp = () => {
 
     const [action,setAction] = useState("Sign-Up");
+    const [formData, setFormData] = useState({
+    phoneNumber: "",
+    adharID: "",
+    dob: "",
+  });
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+   // Handle form submission
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/User/signup", { //CHANGE THIS URL
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        alert("User registered successfully!");
+      } else {
+        alert(`Error: ${result.message}`);
+      }
+    } catch (error) {
+      console.error("Error connecting to backend:", error);
+      alert("Failed to connect to server.");
+    }
+  };
+
     return (
         <div className="container">
             <div className="header">
@@ -19,21 +53,41 @@ const LoginSignUp = () => {
                 {action==="Login"?<div></div>:
                 <div className="input">
                     <img src={phone} alt="" />
-                <input type="tel" placeholder="Phone Number"/>
+                <input
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    value={formData.phoneNumber}
+                    onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                    required
+                />
             </div>}
             </div>
             <div className="inputs">
                 {action==="Login"?<div></div>:
                 <div className="input">
                     <img src={user} alt="" />
-                    <input type="date" placeholder="age"/>
+                    <input
+                        type="date"
+                        name="dob"
+                        value={formData.dob}
+                        onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
+                        required
+                    />
                 </div>
                 }
             </div>
             <div className="inputs">
                 <div className="input">
                     <img src={Card} alt="" />
-                    <input type="text" placeholder="Aadhar Number"/>
+                    <input
+                        type="text"
+                        name="adharID"
+                        placeholder="Aadhar Number"
+                        value={formData.adharID}
+                        onChange={(e) => setFormData({ ...formData, adharID: e.target.value })}
+                        required
+                    />
                 </div>
             </div>
             <div className="inputs1">
@@ -49,7 +103,7 @@ const LoginSignUp = () => {
                 <div className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Sign-Up")}}>
                     Sign-Up
                 </div>
-                <div className={action==="Sign-Up"?"submit gray":"submit"} onClick={()=>{setAction("Login")}}>
+                <div className={action==="Sign-Up"?"submit gray":"submit"} onClick={()=>{handleSubmit()}}>
                     Login
                 </div>
             </div>
