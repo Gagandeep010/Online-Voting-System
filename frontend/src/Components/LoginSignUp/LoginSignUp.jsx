@@ -5,6 +5,7 @@ import Card from "../Assets/card2.png"
 import user from "../Assets/user.png"
 import phone from "../Assets/phone.png"
 import otp from "../Assets/otp.png"
+import Otp from "../Otp/Otp";
 
 const LoginSignUp = () => {
 
@@ -43,6 +44,10 @@ const LoginSignUp = () => {
       alert("Failed to connect to server.");
     }
   };
+
+  const submitOtp = () => {
+    console.log("Login success", otp)
+  }
 
     return (
         <div className="container">
@@ -108,13 +113,19 @@ const LoginSignUp = () => {
                     />
                 </div>
             </div>
-            <div className="inputs1">
+            {/* <div className="inputs1">
                 {action==="Sign-Up"?<div></div>:
-                <div className="input1">
-                    <img src={otp} alt="" />
-                    <input type="password" placeholder="Otp"/>
-                </div>
+                  <div className="input1">
+                    <Otp length = {4}/>
+                  </div>
                 }
+            </div> */}
+
+            <div className="otp">
+               {action==="Sign-Up"?<div></div>: 
+                <div className="otp-text">
+                  <Otp length = {4} onOtpSubmit = {submitOtp}/>
+                </div>}
             </div>
             
             <div className="submit-container">
