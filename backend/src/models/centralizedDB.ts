@@ -2,9 +2,10 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema(
   {
-    adharID: { type: String, required: true, unique: true },
+    name: { type: String, required: true },
     phoneNumber: { type: String, required: true },
-    dob: { type: String },
+    age: { type: Number, required: true },
+    adharID: { type: String, required: true, unique: true },
   },
   { collection: "Users" } // ✅ Explicitly define collection name
 );

@@ -18,12 +18,17 @@ const LoginSignUp = () => {
   });
 
   // Handle input changes
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+   const handleChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
 
    // Handle form submission
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default behavior in case used inside a <form>
+    console.log("Submitting Data:", formData); // Debugging log
     try {
       const response = await fetch("http://localhost:5000/api/User/signup", { //CHANGE THIS URL
         method: "POST",
@@ -34,6 +39,7 @@ const LoginSignUp = () => {
       });
 
       const result = await response.json();
+      console.log("Server Response:", result); // Debugging log
       if (response.ok) {
         alert("User registered successfully!");
       } else {
