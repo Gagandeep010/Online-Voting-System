@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  blockchain:
+    image: trufflesuite/ganache-cli
+    container_name: blockchain
+    ports:
+      - "8545:8545"
+    command: ["ganache-cli", "-p", "8545"]
+    networks:
+      - voting_network
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - blockchain
+    env_file:
+      - ./backend/.env
+    networks:
+      - voting_network
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - voting_network
+
+networks:
+  voting_network:
+    driver: bridge

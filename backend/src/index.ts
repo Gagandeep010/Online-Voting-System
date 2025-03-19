@@ -29,11 +29,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/User", signupRoutes);
 
 
-
-
-
-
-
 // Database connection
 // mongoose
 connectDB();
