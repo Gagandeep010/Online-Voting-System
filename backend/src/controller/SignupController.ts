@@ -3,13 +3,15 @@ import User from "../models/centralizedDB";
 
 export const signup = async (req: Request, res: Response): Promise<void> => {
   try {
-    const { name, phoneNumber, age, adharID} = req.body; //  Match with model field name
+    const { phoneNumber, adharID, age, user_name } = req.body; //  Match with model field name
 
     console.log("📥 Incoming Request:", req.body);
 
     // Validate required fields
-    if (!name|| !phoneNumber||!adharID || !age) {
-      res.status(400).json({ message: "Name, phoneNumber, adharID and age are required" });
+    if (!user_name || !phoneNumber || !adharID || !age) {
+      res
+        .status(400)
+        .json({ message: "Name, phoneNumber, adharID and age are required" });
       return;
     }
 
@@ -21,7 +23,7 @@ export const signup = async (req: Request, res: Response): Promise<void> => {
     }
 
     // Store user in DB
-    const newUser = new User({ adharID, phoneNumber, name, age });
+    const newUser = new User({ adharID, phoneNumber, user_name, age });
     await newUser.save();
 
     res

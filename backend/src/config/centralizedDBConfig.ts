@@ -7,6 +7,10 @@ const CENTRALIZED_DB_URI =
   process.env.CENTRALIZED_DB_URI ||
   "mongodb://localhost:27017/Online_Voting_System";
 
+  //debugging
+console.log("Database URI:", process.env.CENTRALIZED_DB_URI);
+
+
 const connectDB = async () => {
   try {
     await mongoose.connect(CENTRALIZED_DB_URI);
