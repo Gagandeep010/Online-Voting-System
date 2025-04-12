@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import Card from "../../Assets/card2.png";
 import user from "../../Assets/user.png";
@@ -6,6 +7,7 @@ import phone from "../../Assets/phone.png";
 import LoginSignUp from "../LoginSignUp"; // Import the toggle buttons
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     phoneNumber: "",
     adharID: "",
@@ -42,10 +44,6 @@ const Signup = () => {
   return (
     <div className="container">
       <LoginSignUp /> {/* Include toggle buttons */}
-      <div className="header">
-        <div className="text">Sign-Up</div>
-        <div className="underline"></div>
-      </div>
       <div className="inputs">
         <div className="input">
           <img src={user} alt="" />

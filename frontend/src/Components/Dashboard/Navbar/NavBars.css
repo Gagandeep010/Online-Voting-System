@@ -1,0 +1,62 @@
+.box{
+    width: 345px;
+    height: 735px;
+    flex-shrink: 0;
+    background: #f9f9f9;
+}
+
+.header>svg{
+    margin-top: 55px;
+    margin-left: 55px;
+}
+
+.menu{
+    width: 345px;
+    height: 441px;
+    flex-shrink: 0;
+}
+
+.menu>span{
+    color: #C7C7C7;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    margin-left: 25px;
+}
+
+.tabs{
+    display: flex;
+    width: 345px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    margin-top: 25px;
+}
+
+
+/* Styling for all tab items (dashboard, area, register, vote, settings) */
+.dashboard, .area, .register, .vote, .settings {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 30px;
+    margin-left: 50%;
+}
+
+/* Styling for the text in tab items */
+.dashboard span, .area span, .register span, .vote span, .settings span {
+    color: #202020;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 15px;
+}
+
+/* Active tab styling if needed */
+.dashboard.active, .area.active, .register.active, .vote.active, .settings.active {
+    background-color: #f0f0f0;
+}

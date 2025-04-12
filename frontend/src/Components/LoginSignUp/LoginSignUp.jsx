@@ -18,7 +18,7 @@ function LoginSignUp() {
         Login
       </button>
       <button 
-        onClick={() => navigate("/signup")} 
+        onClick={() => navigate("/register")} 
         className={!isLogin ? "active" : ""}
       >
         Sign Up

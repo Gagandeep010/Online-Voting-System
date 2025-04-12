@@ -4,7 +4,7 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, #483564, #000000);
+    background: #f9f9f9;
 }
 
 .container {
@@ -20,7 +20,7 @@ body, html {
 
 .header {
     text-align: center;
-    color: #3c009d;
+    color: #509288;
     font-size: 32px;
     font-weight: 700;
 }
@@ -28,7 +28,7 @@ body, html {
 .underline {
     width: 70px;
     height: 5px;
-    background: #3c009d;
+    background: #509288;
     border-radius: 5px;
     margin-top: 5px;
 }
@@ -72,7 +72,7 @@ body, html {
 .submit {
     padding: 12px 0;
     color: white;
-    background: #4c00b4;
+    background: #509288;
     border-radius: 25px;
     font-size: 16px;
     font-weight: bold;
@@ -82,5 +82,5 @@ body, html {
 }
 
 .submit:hover {
-    background: #3c008a;
+    background: #509288;
 }

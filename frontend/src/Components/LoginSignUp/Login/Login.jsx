@@ -7,6 +7,7 @@ import Otp from "../../Otp/Otp.jsx";
 import LoginSignUp from "../LoginSignUp"; // Import the toggle buttons
 
 const Login = () => {
+  const navigate = useNavigate();
   const submitOtp = () => {
     console.log("Login success");
   };
@@ -14,10 +15,6 @@ const Login = () => {
   return (
     <div className="container">
       <LoginSignUp /> {/* Include toggle buttons */}
-      <div className="header">
-        <div className="text">Login</div>
-        <div className="underline"></div>
-      </div>
       <div className="inputs">
         <div className="input">
           <img src={Card} alt="" />

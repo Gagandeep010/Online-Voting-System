@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom, #2c2c54, #000000);
+  background: #f9f9f9;
 }
 
 .App-logo {
