@@ -1,4 +1,4 @@
-.box{
+/* .box{
     width: 345px;
     height: 735px;
     flex-shrink: 0;
@@ -37,8 +37,6 @@
     margin-top: 25px;
 }
 
-
-/* Styling for all tab items (dashboard, area, register, vote, settings) */
 .dashboard, .area, .register, .vote, .settings {
     display: flex;
     align-items: center;
@@ -47,7 +45,6 @@
     margin-left: 50%;
 }
 
-/* Styling for the text in tab items */
 .dashboard span, .area span, .register span, .vote span, .settings span {
     color: #202020;
     font-family: "Open Sans";
@@ -56,7 +53,84 @@
     margin-left: 15px;
 }
 
-/* Active tab styling if needed */
 .dashboard.active, .area.active, .register.active, .vote.active, .settings.active {
     background-color: #f0f0f0;
-}
+} */
+
+.box {
+    width: 345px;
+    min-height: 100vh;
+    background: #f9f9f9;
+    transition: all 0.3s ease;
+  }
+  
+  /* SVG position */
+  .header > svg {
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+    cursor: pointer;
+  }
+  
+  /* Menu base style */
+  .menu {
+    padding: 1rem;
+  }
+  
+  .menu > span {
+    color: #C7C7C7;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-left: 1rem;
+  }
+  
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .dashboard, .area, .register, .vote, .settings {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+  
+  .dashboard span, .area span, .register span, .vote span, .settings span {
+    color: #202020;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 0.75rem;
+  }
+  
+  .dashboard.active, .area.active, .register.active, .vote.active, .settings.active {
+    background-color: #f0f0f0;
+  }
+  
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 768px) {
+    .box {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .menu {
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: #f9f9f9;
+      border-top: 1px solid #ddd;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+  
+    .tabs {
+      gap: 1rem;
+    }
+  }
+  

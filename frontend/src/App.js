@@ -12,6 +12,7 @@
   import ECLoginPage from "./Components/ElectionCom/ECLogin/ECLoginPage.tsx"
   import StartElectionPage from "./Components/ElectionCom/Start/StartElectionPage.tsx";
   import SettingsPage from "./Components/Dashboard/Settings/SettingPage.tsx";
+  import VerifyUser from "./Components/LoginSignUp/Login/VerifyUser.tsx";
 
 
   function App() {
@@ -34,6 +35,7 @@
           <Route path="/voteregister" element={<RegisterPage />} />
           <Route path="/Election" element={<ECLoginPage />} />
           <Route path="/start" element={<StartElectionPage />} />
+          <Route path="/verify" element={<VerifyUser/>} />
         </Routes>
       </Router>
     );

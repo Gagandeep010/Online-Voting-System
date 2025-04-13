@@ -6,7 +6,7 @@ const CallToAction = () => {
   return (
     <div className="cta">
       <button
-        onClick={() => console.log("User continue clicked")}
+        onClick={() => navigate("/login")}
         className="cta-sbtn"
       >
         <span>continue as user</span>

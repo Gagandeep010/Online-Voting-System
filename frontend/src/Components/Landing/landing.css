@@ -1,4 +1,4 @@
-.header {
+/* .header {
     display: flex;
     width: 1250px;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     font-size: 24px;
     font-style: normal;
     font-weight: 800;
-    line-height: 24px; /* 100% */
+    line-height: 24px; 
     background: linear-gradient(91deg, #0D9488 11.83%, rgba(13, 148, 136, 0.60) 95.42%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -71,7 +71,7 @@
     font-family: Inter;
     font-size: 18px;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     background: transparent;
     border-color: transparent;
     cursor: pointer;
@@ -116,7 +116,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px; 
 }
 
 .content-hero {
@@ -134,7 +134,7 @@
     font-size: 22.4px;
     font-style: normal;
     font-weight: 500;
-    line-height: 32px; /* 142.857% */
+    line-height: 32px;
     letter-spacing: 0.56px;
     width: 50rem;
     margin-left: 95px;
@@ -173,7 +173,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px; 
 }
 
 .cta-adbtn {
@@ -197,9 +197,433 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
 }
 
 .testi .flex>img{
     margin-left: -18px;
-}
+} */
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Header Section */
+  .header {
+    display: flex;
+    width: 100%;
+    max-width: 1250px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+  }
+  
+  .header .text {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 24px;
+    background: linear-gradient(91deg, #0D9488 11.83%, rgba(13, 148, 136, 0.60) 95.42%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .header .text > span {
+    background: linear-gradient(91deg, #509288 11.83%, rgba(13, 148, 136, 0.60) 95.42%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 24px;
+  }
+  
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .signup {
+    display: flex;
+    min-width: 135px;
+    padding: 9px 32px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #0D9488;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .signup > span {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #FFFFFF;
+  }
+  
+  .login {
+    display: flex;
+    min-width: 100px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Hero Section */
+  .hero-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero-badge {
+    display: flex;
+    width: 100%;
+    max-width: 459px;
+    padding: 3px 13px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 9999px;
+    background: transparent;
+    box-shadow: 0px 0px 0px 2px rgba(17, 24, 39, 0.10);
+    margin: 0 auto;
+  }
+  
+  .b1 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    align-self: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .b1 > img {
+    width: 25px;
+    height: 25px;
+    flex-shrink: 0;
+  }
+  
+  .hero-badge-text {
+    color: #4B5563;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 20px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+  }
+  
+  .content-hero {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  
+  /* SVG Responsive Handling */
+  .hero-svg {
+    width: 100%;
+    max-width: 918px;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .hero-description {
+    color: #4B5563;
+    text-align: center;
+    font-size: 22.4px;
+    font-weight: 500;
+    line-height: 32px;
+    letter-spacing: 0.56px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .testi {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 15px;
+  }
+  
+  .testi .flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  .testi .flex > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 9999px;
+    box-shadow: 0px 0px 0px 2px #FFF;
+    margin-left: -10px;
+  }
+  
+  .testi .flex > img:first-child {
+    margin-left: 0;
+  }
+  
+  .testi .text-base {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0D9488;
+  }
+  
+  .cta {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+  }
+  
+  .cta-sbtn {
+    display: flex;
+    padding: 16px 35px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 8px;
+    background: #0D9488;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    border: none;
+  }
+  
+  .cta-sbtn > span {
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .cta-adbtn {
+    display: flex;
+    padding: 16px 17px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background: transparent;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+  }
+  
+  .cta-adbtn > span {
+    color: #27272A;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  /* Specific Media Query for 950px and below */
+  @media screen and (max-width: 950px) {
+    .header {
+      flex-direction: column;
+      gap: 20px;
+      padding: 15px 20px;
+    }
+    
+    .left {
+      padding: 0;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .hero-container {
+      width: 100%;
+      padding: 0 15px;
+    }
+    
+    .hero-badge {
+      width: 90%;
+      max-width: 400px;
+    }
+    
+    .hero-svg {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    .hero-description {
+      font-size: 20px;
+      line-height: 28px;
+      width: 100%;
+      max-width: 650px;
+    }
+    
+    .content-hero {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 10px;
+    }
+    
+    .testi {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+    
+    .cta {
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .header .text, 
+    .header .text > span {
+      font-size: 22px;
+    }
+    
+    .hero-description {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    
+    .b1 {
+      justify-content: center;
+      text-align: center;
+    }
+    
+    .hero-badge-text {
+      text-align: center;
+    }
+    
+    .cta {
+      flex-direction: column;
+      width: 100%;
+    }
+    
+    .cta-sbtn, 
+    .cta-adbtn {
+      width: 100%;
+      max-width: 250px;
+    }
+    
+    .testi .text-base {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .header .text, 
+    .header .text > span {
+      font-size: 20px;
+    }
+    
+    .left {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .signup, 
+    .login {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .hero-description {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    
+    .hero-badge-text {
+      font-size: 14px;
+      min-width: unset;
+    }
+    
+    .b1 {
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .testi .flex > img {
+      width: 32px;
+      height: 32px;
+    }
+    
+    .testi .text-base {
+      font-size: 12px;
+    }
+  }
+  
+  /* Additional small screen fixes */
+  @media screen and (max-width: 375px) {
+    .header {
+      padding: 10px;
+    }
+    
+    .signup, 
+    .login {
+      min-width: unset;
+      padding: 8px 16px;
+    }
+    
+    .signup > span,
+    .cta-sbtn > span,
+    .cta-adbtn > span {
+      font-size: 14px;
+    }
+    
+    .hero-badge {
+      padding: 3px 8px;
+    }
+  }
