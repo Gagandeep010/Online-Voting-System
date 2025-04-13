@@ -11,6 +11,10 @@
 # production
 /build
 
+#Firebae congig files
+/src/config/FireBaseServiceAccountKey.json
+/src/firebase/FirebaseConfig.js
+
 # misc
 .DS_Store
 .env.local

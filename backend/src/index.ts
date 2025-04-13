@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./config/centralizedDBConfig";
-// import loginRoutes from "./routes/loginRoutes.js";
+ import loginRoutes from "./routes/LoginRout";
 import signupRoutes from "./routes/SignupRout";
 
 dotenv.config();
@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-// app.use("/login", loginRoutes);
+app.use("/login", loginRoutes);
 app.use("/api/User", signupRoutes);
 
 

@@ -1,6 +1,13 @@
-import mongoose from "mongoose";
+import mongoose, { Document, Schema} from "mongoose";
 
-const userSchema = new mongoose.Schema(
+export interface IUser extends Document {
+  user_name: string;
+  phoneNumber: string;
+  age: number;
+  adharID: string;
+}
+
+const userSchema: Schema<IUser> = new mongoose.Schema(
   {
     user_name: { type: String, required: true },
     phoneNumber: { type: String, required: true },
@@ -10,4 +17,5 @@ const userSchema = new mongoose.Schema(
   { collection: "Users" } // ✅ Explicitly define collection name
 );
 
-export default mongoose.model("User", userSchema);
+const User = mongoose.model<IUser>("User", userSchema);
+export default User;
