@@ -131,53 +131,6 @@ line-height: normal;
     flex-shrink: 0;
   }
   
-  /* .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backdrop-filter: blur(5px);
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-  }
-  
-  .modal-box {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .modal-box h2 {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .modal-box span {
-    font-weight: bold;
-    color: #0D9488;
-  }
-  
-  .modal-buttons button {
-    margin: 0 0.5rem;
-    padding: 0.5rem 1.2rem;
-    border: none;
-    border-radius: 8px;
-    background-color: #0D9488;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .modal-buttons button:last-child {
-    background-color: #ccc;
-    color: black;
-  }
-   */
 
    .modal-overlay {
     position: fixed;

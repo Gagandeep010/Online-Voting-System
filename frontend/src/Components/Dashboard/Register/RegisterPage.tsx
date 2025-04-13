@@ -1,96 +1,30 @@
-// import React from 'react'
-// import { useNavigate } from 'react-router-dom';
-// import NavBar from '../Navbar/NavBar.tsx';
-// import "./Register.css"
-
-// const RegisterPage = () => {
-//     const navigate = useNavigate();
-//   return (
-//     <div className="main11">
-//       <NavBar/>
-//       <div className="contenttt">
-//         <div className="title">
-//           <span>Registration</span>
-//         </div>
-//         <div className="frame28">
-//             <span className="f28-text">Input your information</span>
-//             <div className="frame27">
-//                 <span></span>
-//                 <div className="frame26">
-//                     <div className="frame22">
-//                         <div className="frame17">
-//                             <div className="frame16">
-//                                 <div className="frame8">
-//                                     <div className="frame7">
-//                                         <span>First name</span>
-//                                         <input type="text" placeholder="John" required/>
-//                                     </div>
-//                                     <div className="frame7">
-//                                         <span>Last name</span>
-//                                         <input type="text" placeholder="Doe" required/>
-//                                     </div>
-//                                 </div>
-//                                 <div className="frame8">
-//                                     <div className="frame7">
-//                                         <span>Age</span>
-//                                         <input type="text" placeholder="Age" required/>
-//                                     </div>
-//                                     <div className="frame7">
-//                                         <span>Email</span>
-//                                         <input type="email" placeholder="xyz@gmail.com" required/>
-//                                     </div>
-//                                 </div>
-//                                 <div className="frame8">
-//                                     <div className="frame7">
-//                                         <span>Password</span>
-//                                         <input type="password" placeholder="Password" required/>
-//                                     </div>
-//                                     <div className="frame7">
-//                                         <span>Confirm Password</span>
-//                                         <input type="password" placeholder="Confirm Password" required/>
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     <div className="frame25">
-//                         <span></span>
-//                         <div className="frame24">
-//                             <div className="frame23">
-//                                 <button className="register-btn" onClick={() => alert("submitted")}>Register</button>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-//             </div>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default RegisterPage
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import NavBar from '../Navbar/NavBar.tsx';
 import "./Register.css";
 
-const RegisterPage: React.FC = () => {
-    const navigate = useNavigate();
-    const [leaderImage, setLeaderImage] = useState<string | null>(null);
-    const [partyImage, setPartyImage] = useState<string | null>(null);
+const RegisterPage = () => {
+    // const navigate = useNavigate();
+    const [leaderImage, setLeaderImage] = useState(null as string | null);
+    const [partyImage, setPartyImage] = useState(null as string | null);
 
-    const handleLeaderImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setLeaderImage(URL.createObjectURL(e.target.files[0]));
-        }
-    };
+    
 
-    const handlePartyImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setPartyImage(URL.createObjectURL(e.target.files[0]));
-        }
-    };
+const handleLeaderImageChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files[0]) {
+      const imageUrl = URL.createObjectURL(target.files[0]);
+      setLeaderImage(imageUrl);
+    }
+  };
+
+  const handlePartyImageChange = (e: Event) => {
+    const target = e.target as HTMLInputElement;
+    if (target.files && target.files[0]) {
+      const imageUrl = URL.createObjectURL(target.files[0]);
+      setPartyImage(imageUrl);
+    }
+  };
 
     const handleDeleteLeaderImage = () => {
         setLeaderImage(null);

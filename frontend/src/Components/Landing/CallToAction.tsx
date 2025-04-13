@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const CallToAction = () => {
+  const navigate = useNavigate();
   return (
     <div className="cta">
       <button
@@ -10,7 +12,7 @@ const CallToAction = () => {
         <span>continue as user</span>
       </button>
       <button
-        onClick={() => console.log("Admin continue clicked")}
+        onClick={() => navigate("/Election")}
         className="cta-adbtn"
       >
         <span>continue as admin</span>
