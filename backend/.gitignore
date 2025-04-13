@@ -11,7 +11,10 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
+.pnp.js\
+
+# Firebase configuration files
+src/config/FireBaseServiceAccountKey.json
 
 # testinga
 /coverage
