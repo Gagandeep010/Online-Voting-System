@@ -1,37 +1,46 @@
-import { Request, Response } from "express";
-import Otp from "../../models/OtpModel"; // Import the OTP model
-import jwt from "jsonwebtoken";
+// src/controller/LoginController/VerifyOtpController.ts
 
-export const verifyToken = async (
-  req: Request,
-  res: Response
-): Promise<any> => {
-  const { adharID, otp } = req.body;
+import { Request, Response } from "express";
+import Otp from "../../models/OtpModel"; // Import the Otp model
+import jwt from "jsonwebtoken"; // For generating JWT token
+
+export const verifyOtp = async (req: Request, res: Response): Promise<any> => {
+  const { adharID, otp } = req.body; // Get Aadhar ID and OTP from the request body
 
   try {
-    // Fetch OTP from database
-    const otpRecord = await Otp.findOne({ adharID, otp });
+    // Find the OTP record in the database for the given adharID
+    const otpRecord = await Otp.findOne({ adharID });
 
-    console.log("Received OTP request:", req.body); // Debugging
+    // Debugging - check the OTP request received
+    console.log("Received OTP request:", req.body);
 
+    // If no OTP is found for the given Aadhar ID
     if (!otpRecord) {
       return res.status(400).json({ message: "OTP not found or expired" });
     }
 
-    // Check if OTP has expired
-   if (new Date().getTime() > otpRecord.expiresAt.getTime()) {
-     await Otp.deleteOne({ _id: otpRecord._id });
-     return res.status(400).json({ message: "OTP expired" });
-   }
+    // If the OTP has expired
+    if (Date.now() > otpRecord.expiresAt.getTime()) {
+      // Delete the expired OTP record
+      await Otp.deleteOne({ adharID });
+      return res.status(400).json({ message: "OTP expired" });
+    }
 
-    // OTP is valid - issue a JWT token
+
+    // If the OTP doesn't match
+    if (otpRecord.otp !== otp) {
+      return res.status(400).json({ message: "Invalid OTP" });
+    }
+
+    // OTP is valid - generate a JWT token for the user
     const token = jwt.sign({ adharID }, process.env.JWT_SECRET || "secret", {
       expiresIn: "1h", // Token expires in 1 hour
     });
 
-    // Delete OTP from database after successful verification
-    await Otp.deleteOne({ _id: otpRecord._id });
+    // Delete the OTP record from the database after successful verification
+    await Otp.deleteOne({ adharID });
 
+    // Return the JWT token as response
     return res.status(200).json({
       message: "OTP verified successfully",
       token,

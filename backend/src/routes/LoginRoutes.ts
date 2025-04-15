@@ -1,10 +1,9 @@
 import express from 'express';
 import { sendOtp } from '../controller/LoginController/SendOtpController';
-import { verifyToken } from '../controller/LoginController/VerifyOtpController';
-import exp from 'constants';
+import { verifyOtp } from '../controller/LoginController/VerifyOtpController';
 
 const loginRouter = express.Router();
 loginRouter.post('/send-otp', sendOtp);
-loginRouter.post('/verify-otp', verifyToken);
+loginRouter.post('/verify-otp', verifyOtp);
 
 export default loginRouter;
