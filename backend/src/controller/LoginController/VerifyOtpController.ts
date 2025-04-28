@@ -1,3 +1,4 @@
+
 import { Request, Response } from "express";
 import Otp from "../../models/OtpModel"; // Import the Otp model
 import jwt from "jsonwebtoken"; // For generating JWT token
@@ -47,4 +48,5 @@ export const verifyOtp = async (req: Request, res: Response): Promise<any> => {
     console.error("Error verifying OTP:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
+
 };
