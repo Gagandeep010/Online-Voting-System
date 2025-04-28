@@ -34,4 +34,5 @@ export const sendOtp = async (req: Request, res: Response): Promise<any> => {
     console.error("Error sending OTP:", error);
     return res.status(500).json({ message: "Internal server error" });
   }
+
 };
