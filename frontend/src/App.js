@@ -13,6 +13,8 @@
   import StartElectionPage from "./Components/ElectionCom/Start/StartElectionPage.tsx";
   import SettingsPage from "./Components/Dashboard/Settings/SettingPage.tsx";
   import VerifyUser from "./Components/LoginSignUp/Login/VerifyUser.tsx";
+  import AddCandidatePage from "./Components/AddCandidate/AddCandidatePage.tsx";
+import SwitchVoterPage from "./Components/AddCandidate/SwitchVoterPage.tsx";
 
 
   function App() {
@@ -36,6 +38,8 @@
           <Route path="/Election" element={<ECLoginPage />} />
           <Route path="/start" element={<StartElectionPage />} />
           <Route path="/verify" element={<VerifyUser/>} />
+          <Route path="/add-candidate" element={<AddCandidatePage />} />
+          <Route path="/switch" element={<SwitchVoterPage />} />
         </Routes>
       </Router>
     );

@@ -15,9 +15,6 @@ const Login = () => {
           <input type="text" name="adharID" placeholder="Aadhar Number" required />
         </div>
       </div>
-      {/* <div className="otp-text">
-        <Otp length={4} onOtpSubmit={submitOtp} />
-      </div> */}
       <div className="submit-container">
         <div className="submit" onClick={() => navigate("/verify")}>
           Login
