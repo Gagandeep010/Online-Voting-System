@@ -90,7 +90,6 @@
     flex-direction: column;
     gap: 1.5rem;
     margin-top: 1rem;
-    cursor: pointer;
   }
   
   .dashboard, .area, .register, .vote, .settings {
