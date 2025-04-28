@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import "./vote.css";
 import NavBar from '../Navbar/NavBar.tsx';
 import { useNavigate } from 'react-router-dom';
+import getElectionContract from "../../../web3.js"
 
 const VotingPage = () => {
   const [candidates, setCandidates] = useState<string[]>([]);
@@ -167,3 +168,7 @@ const VotingPage = () => {
 };
 
 export default VotingPage;
+function getElectionContract() {
+  throw new Error('Function not implemented.');
+}
+
