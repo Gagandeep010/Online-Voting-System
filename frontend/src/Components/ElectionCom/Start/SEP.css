@@ -1,0 +1,119 @@
+.sep-container {
+    padding: 2rem;
+    margin: auto;
+    font-family: 'Roboto', sans-serif;
+    width: 1100px;
+    height: 665px;
+    padding: 35px;
+  }
+  
+  .admin-title {
+    font-size: 32px;
+    color: #0d9488;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .rule-box{
+    background: #ffffff;
+    filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.50));
+    padding: 50px;
+    margin-top: 0px;
+    width: 500px;
+    margin-left: 240px;
+    border-radius: 8px;
+  }
+  
+  .rules-box {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-left: 6px solid #0d9488;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+  
+  .rules-box h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .rules-box ul {
+    list-style: disc inside;
+    line-height: 1.8;
+    color: #555;
+    padding-left: 1rem;
+  }
+  
+  .election-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+    margin-left: 68px;
+  }
+  
+  .start-btn, .stop-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .start-btn {
+    background-color: #0d9488;
+    color: white;
+  }
+  
+  .start-btn:hover {
+    background-color: #0b827a;
+  }
+  
+  .stop-btn {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .stop-btn:hover {
+    background-color: #c0392b;
+  }
+  
+
+  .blocck{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  
+
+  .logout-container {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem 2rem;
+  }
+  
+  .logout-btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:  0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background-color: #e60000;
+  }
+  
+  .sep-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }

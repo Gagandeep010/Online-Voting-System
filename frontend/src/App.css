@@ -1,0 +1,72 @@
+.App {
+  text-align: center;
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9f9f9;
+  padding: 2rem;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+/* Optional: Add max-width for content to avoid stretching too wide on large screens */
+.app-container > * {
+  max-width: 100%;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Responsive tweaks for header */
+@media (max-width: 768px) {
+  .App-header {
+    font-size: calc(10px + 1.5vmin);
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    font-size: calc(10px + 1vmin);
+    padding: 1rem;
+  }
+}
+
+.App-link {
+  color: #61dafb;
+  word-break: break-word;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

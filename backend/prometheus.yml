@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'voting-system'
+    static_configs:
+      - targets: ['localhost:5000'] # change to your app port

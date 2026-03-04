@@ -1,0 +1,95 @@
+.main11 {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 20px;
+    background: #ededed;
+}
+
+.contenttt{
+    width: 1100px;
+    height: 665px;
+    padding: 35px;
+    background: #ededed;
+}
+
+.title{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title>span{
+    color: var(--Black, #202020);
+    font-family: Inter;
+    font-size: 37px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.title>button{
+    display: flex;
+    padding: 12px 15px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: #0D9488;
+    border-color: transparent;
+    cursor: pointer ;
+}
+
+.title>button>span{
+    color: var(--White, #FFF);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bottom-content{
+    width: auto;
+    background: #ffffff;
+    filter: drop-shadow(0px 10px 60px rgba(226, 236, 249, 0.50));
+    padding: 50px;
+    margin-top: 30px;
+}
+
+.bottom-content>span{
+    color: #15B8A6;
+    font-family: Poppins;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.22px;
+}
+
+.bottom-ct{
+    margin-top: 15px;
+}
+
+.bottom-ct>span{
+    color: #000;
+    font-family: Poppins;
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.22px;
+    align-self: stretch;
+}
+
+.bottom-ct>p{
+    color: #000;
+text-align: justify;
+font-family: Poppins;
+font-size: 16.8px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -0.14px;
+}

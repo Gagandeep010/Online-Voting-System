@@ -1,0 +1,126 @@
+version: "3.8"
+
+services:
+  # Blockchain service (Ganache - local Ethereum node)
+  blockchain:
+    image: trufflesuite/ganache-cli:latest
+    container_name: voting-blockchain
+    ports:
+      - "8545:8545"
+    volumes:
+      - blockchain_data:/data
+    networks:
+      - voting_network
+    command:
+      - --deterministic
+      - --host=0.0.0.0
+      - --port=8545
+      - --db=/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "const net=require('net');const s=net.connect(8545,'127.0.0.1');s.on('connect',()=>{s.end();process.exit(0)});s.on('error',()=>process.exit(1));setTimeout(()=>process.exit(1),2000);",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # MongoDB database service
+  mongodb:
+    image: mongo:5.0
+    container_name: voting-mongodb
+    environment:
+      - MONGO_INITDB_DATABASE=voting-system
+      # For production, use auth credentials
+      # - MONGO_INITDB_ROOT_USERNAME=admin
+      # - MONGO_INITDB_ROOT_PASSWORD=secure_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+      - ./mongodb-init.js:/docker-entrypoint-initdb.d/init.js:ro
+    networks:
+      - voting_network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Backend API service (Node.js + Express)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    container_name: voting-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+      - NODE_ENV=development
+      - CENTRALIZED_DB_URI=mongodb://mongodb:27017/voting-system
+      - JWT_SECRET=${JWT_SECRET:-dev_secret_key_change_in_production}
+      - BLOCKCHAIN_NODE_URL=http://blockchain:8545
+      - CORS_ORIGIN=http://localhost:3000
+      - FACIAL_SIMILARITY_THRESHOLD=0.6
+      - LOG_LEVEL=debug
+    depends_on:
+      blockchain:
+        condition: service_healthy
+      mongodb:
+        condition: service_healthy
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/node_modules:/app/node_modules
+    networks:
+      - voting_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  # Frontend web service (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    container_name: voting-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:5000
+      - REACT_APP_BLOCKCHAIN_NETWORK=http://localhost:8545
+      - REACT_APP_ENVIRONMENT=development
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+      - ./frontend/node_modules:/app/node_modules
+    networks:
+      - voting_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+# Named volumes for data persistence
+volumes:
+  blockchain_data:
+    driver: local
+  mongodb_data:
+    driver: local
+
+# Custom network for service communication
+networks:
+  voting_network:
+    driver: bridge
